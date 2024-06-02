@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Samveekshana 2K24</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+      
+      /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    /*background: linear-gradient(1deg, #007bff, #00bfff);*/
+    background-color: white;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1000px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Underwater scene */
+.underwater-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Bubble styles */
+.bubble {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: rgba(143, 216, 255, 0.5);
+    border: 1px solid whitesmoke;
+    bottom: 0px;
+    opacity: 0.9;
+    animation: bubble 3s ease-in-out infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0%);
+        opacity: 0.06;
+    }
+    100% {
+        transform: translateY(-120vh);
+    }
+}
+
+@keyframes sideWays {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 200px;
+    }
+}
+
+.bubble--1 {
+    left: 10%;
+    animation-delay: 0.5s;
+    animation-duration: 5s;
+    opacity: 0.2;
+}
+
+.bubble--2 {
+    width: 15px;
+    height: 15px;
+    left: 40%;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    opacity: 0.1;
+}
+
+.bubble--3 {
+    width: 10px;
+    height: 10px;
+    left: 30%;
+    animation-delay: 5s;
+    animation-duration: 2s;
+    opacity: 0.3;
+}
+
+.bubble--4 {
+    width: 25px;
+    height: 25px;
+    left: 40%;
+    animation-delay: 8s;
+    animation-duration: 17s;
+    opacity: 0.2;
+}
+
+.bubble--5 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    animation-delay: 10s;
+    animation-duration: 15s;
+    opacity: 0.1;
+}
+
+.bubble--6 {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    animation-delay: 3s;
+    animation-duration: 30s;
+    opacity: 0.4;
+}
+
+.bubble--7 {
+    width: 15px;
+    height: 15px;
+    left: 90%;
+    animation-delay: -7s;
+    animation-duration: 25s;
+    opacity: 0.3;
+}
+
+.bubble--9 {
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    bottom: 30px;
+    animation-delay: -5s;
+    animation-duration: 19s;
+    opacity: 0.2;
+}
+
+.bubble--10 {
+    width: 40px;
+    height: 40px;
+    left: 30%;
+    bottom: 30px;
+    animation-delay: -21s;
+    animation-duration: 16s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    bottom: 30px;
+    animation-delay: -13.75s;
+    animation-duration: 20s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 25px;
+    height: 25px;
+    left: 90%;
+    bottom: 30px;
+    animation-delay: -10.5s;
+    animation-duration: 19s;
+    opacity: 0.3;
+}
+
+/* Increase frequency and speed on scroll */
+.underwater-scene.scrolled .bubble {
+    animation-duration: 10s;
+}
+
+.underwater-scene.scrolled .bubble--1 {
+    animation-duration: 12s;
+}
+
+.underwater-scene.scrolled .bubble--2 {
+    animation-duration: 8s;
+}
+
+.underwater-scene.scrolled .bubble--3 {
+    animation-duration: 15s;
+}
+
+.underwater-scene.scrolled .bubble--4 {
+    animation-duration: 13s;
+}
+
+.underwater-scene.scrolled .bubble--5 {
+    animation-duration: 11s;
+}
+
+.underwater-scene.scrolled .bubble--6 {
+    animation-duration: 20s;
+}
+
+.underwater-scene.scrolled .bubble--7 {
+    animation-duration: 18s;
+}
+
+.underwater-scene.scrolled .bubble--9 {
+    animation-duration: 14s;
+}
+
+.underwater-scene.scrolled .bubble--10 {
+    animation-duration: 12s;
+}
+
+.underwater-scene.scrolled .bubble--11 {
+    animation-duration: 16s;
+}
+
+/* Plant styles */
+.plant {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: sway 3s ease-in-out infinite alternate;
+    opacity: 0.3;
+}
+
+.plant.seaweed {
+    background-image: url('p.png');
+}
+
+.plant.coral {
+    background-image: url('p.png');
+}
+
+@keyframes sway {
+    0% {
+        transform: translateX(-50%) rotate(10deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(-10deg);
+    }
+}
+
+/* Header styles */
+header {
+    background-color: rgba(0, 119, 182, 0.8);
+    box-ow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero section styles */
+.hero {
+    padding: 6rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta {
+    display: inline-block;
+  
+    color: #0C86C6;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #FFCC00;
+    color: #333;
+}
+
+/* Events section styles */
+.events {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.events h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.event-list {
+                display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-gap: 15px;
+            width: 100%;
+            
+}
+
+.event-item {
+    max-width: 500px;
+    margin-bottom: 2rem;
+    background-image: url('6.svg');
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    height:100%;
+    background-size: cover;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.event-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.event-item:hover::before {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+}
+
+.event-item img {
+    width: 100%;
+    height: auto;
+}
+
+.event-item h3 {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.event-item p {
+    padding: 0 1rem 1rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: rgba(0, 119, 182, 0.8);
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+.ripple {
+position: absolute;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+background-color: rgba(191, 235, 250, 0.7);
+animation: ripple 1s linear;
+pointer-events: none;
+z-index: 4;
+}
+@keyframes ripple {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+100% {
+transform: scale(5);
+opacity: 0;
+}
+}
+
+.ripple1 {
+position: absolute;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: rgba(255, 255, 255, 1);
+animation: ripple1 1s linear;
+pointer-events: none;
+z-index: 2;
+}
+@keyframes ripple1 {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+100% {
+transform: scale(5);
+opacity: 0;
+}
+}
+      
+      
+      
+      
+.spinning-image {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    
+     
+    
+}
+
+
+.spinning-image {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* Adjust width as needed */
+     /* Adjust height as needed */
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)2s;
+    
+}
+
+
+section {
+  position: relative;
+  width: 100%;
+  height: vh;
+  background: #6EC2FA;
+}
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(wave3.png);
+  background-size: 1000px 100px;
+  animation: animate 4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.25s);
+}
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  background-position-x: 400px;
+}
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  background-position-x: 300px;
+}
+.wave#wave3 {
+  z-index: 998;
+  opacity: 0.2;
+  background-position-x: 200px;
+}
+.wave#wave4 {
+  z-index: 997;
+  opacity: 0.7;
+  background-position-x: 100px;
+}
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+.sec {
+  padding: 100px;
+}
+.sec h2 {
+  font-size: 3em;
+  color: #111;
+}
+.sec p {
+  font-size: 1.2em;
+  color: #111;
+}
+    .parallax {
+      position: relative;
+      width: 100%;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      
+    }
+
+    .parallax img {
+      position: absolute;
+      pointer-events: none;
+      width:120%;
+     height: 190%;
+   background-size: cover;
+   transition: all cubic-bezier(0.19, 1, 0.22, 1)5s;
+   animation: animate 1s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.5s);
+    }
+
+    #text {
+      position: absolute;
+      color: #fff;
+      font-size: 44px;
+      transition: all cubic-bezier(0.19, 1, 0.22, 1)3s;
+      animation: animate 4s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.25s);
+    }
+
+    
+
+    #btn {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .nav-scroll-container {
+        
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        scrollbar-width: none;
+      }
+      
+      .nav-scroll-container::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-left: 10%;
+      }
+      
+      .nav-menu li {
+        margin-right: 20px;
+        position: relative; /* Position indicator relative to list item */
+      }
+  
+      .nav-menu li:last-child {
+        margin-right: 0;
+      }
+      
+      .nav-menu li a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .nav-menu li a:hover {
+        background-color: rgba(230, 9, 9, 1);
+      }
+  
+      .nav-menu li::after {
+        content: '';
+        padding: 1px;
+        position: absolute;
+        bottom: -1px; /* Adjust the distance from the bottom */
+        left: 50%; /* Position in the center horizontally */
+        transform: translateX(-50%); /* Center the underline */
+        width: 0; /* Set initial width to 0 */
+        height: 2px; /* Adjust the height of the underline */
+        /* background-color: gray; Adjust the color of the underline */
+        transition: width 0.3s ease; /* Add transition effect for width change */
+      }
+  
+      .nav-menu li.active::after {
+        width: calc(100% - 20px); /* Expand the width for the active item */
+        background-color: white; /* Change color for active item */
+      }
+      
+      .bottom-nav-container {
+    position: fixed;
+    bottom: 5%; /* Adjust the vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%; /* Adjust the width as needed */
+    background-color: #000000;
+    padding: 19px;
+    border-radius: 30px; /* Add border radius for curved edges */
+    z-index: 100; /* Ensure the container appears above other elements */
+  }
+  header {
+    background-color: rgba(0, 119, 182, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-nav-container {
+    width: 65%;
+    background-color: #000000;
+    padding: 19px;
+    border-radius: 30px;
+}
+
+.nav-scroll-container {
+    
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    scrollbar-width: none;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding-top: 80px; /* Adjust this value to match the height of your header */
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 119, 182, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1000; /* Ensure the header stays on top */
+}
+
+main1 {
+  padding-top: 80px; /* Adjust padding to prevent content from being hidden behind the fixed header */
+}
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+section {
+  margin-bottom: 50px;
+}
+/* Rest of the CSS remains the same */
+    </style>
+</head>
+<body>
+
+
+    <div class="underwater-scene">
+        <!-- Bubbles and plants will be added dynamically via JavaScript -->
+    </div>
+
+    <header>
+        <div class="bottom-nav-container">
+            <nav class="bottom-nav">
+                <div class="nav-scroll-container">
+                    <ul class="nav-menu">
+                        <li><a href="#">Technical</a></li>
+                        <li><a href="#">E-Gaming</a></li>
+                        <li><a href="#">Dance/drama </a></li>
+                        <li><a href="#">Specials</a></li>
+                        <li><a href="#">Non-tech</a></li>
+                        <li><a href="#">Finearts</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+            <div class="logo">
+                <img src="logo.png" alt="Samveekshana 2K24">
+            </div>
+
+       
+        
+    </header>
+
+    <main style="padding-top: 100px;">
+      
+        <section class="hero">
+          
+          
+          
+            <div class="hero-content">
+  <section class="parallax">
+    <div id="text">SAMVEEKSHANA 2K24</div>
+    <img src="bird1.png" id="bird1">
+    <img src="bird2.png" id="bird2">
+
+   
+
+
+  
+
+                <h1></h1>
+                <p>Explore the depths of creativity.</p>
+
+            </div>
+
+        </section>
+        </section>
+            <section>
+
+              <div class="wave" id="wave1" style="--i: 1;"></div>
+              <div class="wave" id="wave2" style="--i: 2;"></div>
+              <div class="wave" id="wave3" style="--i: 3;"></div>
+              <div class="wave" id="wave4" style="--i: 4;"></div>
+            </section>
+            <div class="sec">
+        
+        
+            </div>
+
+        <section class="events">
+            <h2>Events</h2>
+            <div class="event-list">
+                <div class="event-item">
+                    <img src="event-poster-1.jpg" alt="Event Poster 1">
+                    <h3>Event Title 1</h3>
+                    <p>Event description goes here...</p>
+                </div>
+
+
+                <div class="event-item">
+                    <img src="event-poster-2.jpg" alt="Event Poster 2">
+                    <h3>Event Title 2</h3>
+                    <p>Event description goes here...</p>
+                </div>
+                                                        <img src="ou.gif" alt="Spinning Image" class="spinning-image">                                <div class="event-item">
+                                  <img src="event-poster-1.jpg" alt="Event Poster 1">
+                                  <h3>Event Title 1</h3>
+                                  <p>Event description goes here...</p>
+                                </div>
+                                <div class="event-item">
+                                  <img src="event-poster-2.jpg" alt="Event Poster 2">
+                                  <h3>Event Title 2</h3>
+                                  <p>Event description goes here...</p>
+                                </div>
+
+                <!-- Add more event items as needed -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Samveekshana 2K24. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script >
+      
+
+window.addEventListener('load', () => {
+    const underwaterScene = document.querySelector('.underwater-scene');
+
+    for (let i = 0; i < 60; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubble.style.left = `${Math.random() * 50}vw`;
+        bubble.style.top = `${Math.random() * 500}vh`;
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+        bubble.style.transform = `translateZ(${Math.random() * 1000 - 500}px) scale(${Math.random() * 0.5 + 0.5})`;
+        underwaterScene.appendChild(bubble);
+    }
+
+    for (let i = 0; i < 4; i++) {
+        const plant = document.createElement('div');
+        plant.classList.add('plant');
+        plant.style. left = `${Math.random() * 5}vw`;
+       plant.style.top = `${Math.random() * 100}vw`;
+        plant.classList.add(Math.random() > 8? 'seaweed' : 'coral');
+        underwaterScene.appendChild(plant);
+    }
+});
+
+// Water ripple effect
+document.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${e.pageX - 25}px`; // Use e.pageX
+        ripple.style.top = `${e.pageY - 25}px`; // Use e.pageY
+        document.body.appendChild(ripple);
+      
+        setTimeout(() => {
+          ripple.remove();
+        }, 1000);
+      });
+      
+      document.addEventListener('mouseover', (e) => {
+        const ripple1 = document.createElement('div');
+        ripple1.classList.add('ripple1');
+        ripple1.style.left = `${e.pageX - 15}px`; // Use e.pageX
+        ripple1.style.top = `${e.pageY - 15}px`; // Use e.pageY
+        document.body.appendChild(ripple1);
+      
+        setTimeout(() => {
+          ripple1.remove();
+        }, 1000);
+      });
+      
+      document.addEventListener('touchstart', (e) => {
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${e.touches[0].pageX - 25}px`; // Use e.touches[0].pageX
+        ripple.style.top = `${e.touches[0].pageY - 25}px`; // Use e.touches[0].pageY
+        document.body.appendChild(ripple);
+      
+        setTimeout(() => {
+          ripple.remove();
+        }, 500);
+      });
+      
+      document.addEventListener('touchstart', (e) => {
+        const ripple1 = document.createElement('div');
+        ripple1.classList.add('ripple1');
+        ripple1.style.left = `${e.touches[0].pageX - 15}px`; // Use e.touches[0].pageX
+        ripple1.style.top = `${e.touches[0].pageY - 15}px`; // Use e.touches[0].pageY
+        document.body.appendChild(ripple1);
+      
+        setTimeout(() => {
+          ripple1.remove();
+        }, 100);
+      });
+      
+      let wave1 = document.getElementById("wave1");
+      let wave2 = document.getElementById("wave2");
+      let wave3 = document.getElementById("wave3");
+      let wave4 = document.getElementById("wave4");
+
+      window.addEventListener("scroll", function() {
+        let value = window.scrollY;
+
+        wave1.style.backgroundPositionX = 400 + value * 4 + "px";
+        wave2.style.backgroundPositionX = 300 + value * -4 + "px";
+        wave3.style.backgroundPositionX = 200 + value * 2 + "px";
+        wave4.style.backgroundPositionX = 100 + value * -2 + "px";
+      });
+     window.addEventListener('scroll', function() {
+       let value = window.scrollY;
+     
+       document.getElementById('text').style.top = value * 1.5 + 'px';
+       document.getElementById('bird1').style.top = value * 0.5 + 'px';
+       document.getElementById('bird1').style.left = value * 2 + 'px';
+       document.getElementById('bird2').style.top = -value * 1.5 + 'px';
+       document.getElementById('bird2').style.left = value + 'px';
+       document.getElementById('btn').style.marginTop = value * 1.5 + 'px';
+       document.getElementById('rocks').style.top = value * 0.22 + 'px';
+       document.getElementById('forest').style.top = value * 0.25 + 'px';
+       document.getElementById('header').style.top = value * 0.5 + 'px';
+     });
+     window.addEventListener('scroll', function() {
+    var image = document.querySelector('.spinning-image');
+    var scrollPosition = window.scrollY;
+
+    // Adjust the speed of rotation based on the scroll position
+    var rotation = 'rotate(' + (scrollPosition / 80) + 'deg)';
+    image.style.transform = 'translateX(10%) ' + rotation;
+    image.style.top =  (scrollPosition * 1.5) + 'px';
+    
+    // Toggle image from left to right after scrolling to a certain point
+    if (scrollPosition > 500) { // Adjust 500 to the desired scroll position
+        image.style.left = 'calc(100% - 200px)'; // Adjust 200px to half of the image width
+    } else {
+        image.style.left = '0';
+    }
+});
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+

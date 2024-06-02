@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Nilesh Patil, web developer, Samveekshana, web development, web solutions, innovative web design, efficient web services, professional web developer, Nilesh Patil web development, Samveekshana web developer">
+    <meta name="keywords" content="Nilesh Patil, web developer, Samveekshana, web development, web solutions, innovative web design, efficient web services, professional web developer, Nilesh Patil web development, Samveekshana web developer">
+    
+    <title>Developer Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+                  background: linear-gradient(to bottom, #009AFF, #0BA3D4, #30B0E5, #049BFC);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .ocean {
+            position: relative;
+            min-height: 100vh;
+            width: 100vw;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .water {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 92, 169, 0.7) 0%, rgba(0, 0, 0, 0.9) 100%);
+            border-radius: 50%;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+            animation: water 10s infinite linear;
+        }
+
+        @keyframes water {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: bubble 5s infinite linear;
+        }
+
+        @keyframes bubble {
+            0% {
+                transform: translate(0, 100vh);
+            }
+            100% {
+                transform: translate(0, -100vh);
+            }
+        }
+
+        .fish {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background: url('f1.png') no-repeat center;
+            background-size: contain;
+            animation: fish 10s infinite linear;
+        }
+
+        @keyframes fish {
+            0% {
+                transform: translateX(-100vw);
+            }
+            100% {
+                transform: translateX(100vw);
+            }
+        }
+
+        .seaweed {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url('d.gif') repeat-x;
+            animation: seaweed 10s infinite linear;
+        }
+
+        @keyframes seaweed {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .coral {
+            position: absolute;
+            top: 60%;
+            left: 0%;
+            transform: translateX(-0%);
+            width: 100px;
+            height: 100px;
+            background: url('oc.gif') no-repeat center;
+            background-size: contain;
+            animation: coral 3s infinite alternate;
+        }
+
+        @keyframes coral {
+            0% {
+                transform: translateX(0%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(10deg);
+            }
+        }
+
+        .content {
+            position: relative;
+            padding: 50px;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .developer {
+            display: inline-block;
+            margin: 20px;
+            perspective: 1000px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-in-out forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+
+        .developer-card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            transform: translateZ(50px) scale(0.9);
+            animation: zoomIn 1s ease-in-out forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: translateZ(50px) scale(0.3);
+            }
+            100% {
+                transform: translateZ(0) scale(1);
+            }
+        }
+
+        .developer-card:hover {
+            transform: rotateY(20deg);
+        }
+
+        .developer-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 20px auto;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.51);
+            border:5px solid whitesmoke;
+        }
+
+        .developer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            
+        }
+
+        .developer-info {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .developer-info h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .developer-info h2 {
+            font-size: 22px;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .developer-info p {
+            font-size: 20px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.3s;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-links a:hover {
+            color: #4da6ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="ocean">
+        <div class="water">
+            <div class="bubble" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+            <div class="bubble" style="left: 30%; top: 40%; animation-delay: 1s;"></div>
+            <div class="bubble" style="left: 60%; top: 60%; animation-delay: 2s;"></div>
+            <div class="bubble" style="left: 80%; top: 80%; animation-delay: 3s;"></div>
+            <div class="bubble" style="left: 20%; top: 70%; animation-delay: 4s;"></div>
+            <div class="bubble" style="left: 40%; top: 30%; animation-delay: 5s;"></div>
+            <div class="bubble" style="left: 70%; top: 50%; animation-delay: 6s;"></div>
+            <div class="bubble" style="left: 90%; top: 10%; animation-delay: 7s;"></div>
+            <div class="fish" style="left: 20%; top: 30%; animation-delay: 0s;"></div>
+            <div class="fish" style="left: 70%; top: 70%; animation-delay: 2s;"></div>
+        </div>
+        <div class="seaweed"></div>
+        <div class="coral"></div>
+        <div class="content">
+          <h1>Samveekshana<sub><span style="font-size: 15px;">.tech</span></sub> Creator's</h1>
+            <div class="developer" style="--delay: 1;">
+                <div class="developer-card">
+                    <div class="developer-image">
+                        <img src="Nilesh.png" alt="Developer Image">
+                    </div>
+                    <div class="developer-info">
+                        <h3>Nilesh S. Patil</h3>
+                        <p>Web Developer</p>
+                        <p> Class: 1st year</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/nileshpatil_6?igsh=eGFjNDgxejhieWxv"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/nilesh-patil-18b6371b4"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="developer" style="--delay: 2;">
+                <div class="developer-card">
+                    <div class="developer-image">
+                        <img src="Ayush.png" alt=" Image">
+                    </div>
+                    <div class="developer-info">
+                        <h2>Ayush Tammannavar </h1>
+                        <p>Graphic Designer</p>
+                        <p> Class: 2nd Year</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/lameayush?igsh=dHB0YTFtZjU0NW96p"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/ayush-k-tammannavar-886700300"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="developer" style="--delay: 3;">
+                <div class="developer-card">
+                    <div class="developer-image">
+                        <img src="Rahul.png" alt="Developer Image">
+                    </div>
+                    <div class="developer-info">
+                        <h2>Rahul Somangoudar</h2>
+                        <p>Graphic Designer</p>
+                        <p>Class: 3rd Year</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/rahul.somangoudar?igsh=MWluenUyMGlwZGtwdw=="><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

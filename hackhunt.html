@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samveekshana 2K24</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 2px;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Ocean theme gradient background */
+body {
+    background: linear-gradient(to bottom, #B7E8FF, #ADD8E6, #87CEEB, #64c4ed, #4194e1, #00338b, #000080, #000033);
+    
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.underwater-scene {
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Enable vertical scrolling for content */
+}
+
+/* Other CSS styles remain the same */
+        /* Bubble styles */
+        .bubble {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            position: absolute;
+            background-color: rgba(143, 216, 255, 0);
+            border: 2px solid rgba(255, 255, 255, 1);
+            bottom: -30px; /* Start bubbles just above the bottom */
+            opacity: 0.9;
+            animation: bubble 5s ease-in-out infinite, sideWays 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes bubble {
+            0% {
+                transform: translateY(0%);
+                opacity: 0.06;
+            }
+            100% {
+                transform: translateY(-150vh); /* Move bubbles off the top of the screen */
+            }
+        }
+
+        @keyframes sideWays {
+            0% {
+                margin-left: 0px;
+            }
+            100% {
+                margin-left: 200px;
+            }
+        }
+
+        /* Generate more bubbles */
+        .bubble:nth-child(2n) {
+            animation-delay: 0.5s;
+        }
+
+        .bubble:nth-child(3n) {
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(4n) {
+            animation-delay: 1.5s;
+        }
+
+        .bubble:nth-child(5n) {
+            animation-delay: 2s;
+        }
+
+        /* Additional bubbles on the right side */
+        .bubble:nth-child(6n) {
+            right: 20%;
+            animation-delay: 2.5s;
+        }
+
+        .bubble:nth-child(7n) {
+            right: 30%;
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(8n) {
+            right: 40%;
+            animation-delay: 3.5s;
+        }
+
+        .bubble:nth-child(9n) {
+            right: 50%;
+            animation-delay: 4s;
+        }
+
+        /* Heading styles */
+        h2, h3 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color:#445559;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Paragraph styles */
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        /* Image styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 30px;
+            padding:10px;
+            
+            margin-bottom: 2rem;
+            
+        }
+
+        /* Button styles */
+        button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto; /* This will center the button horizontally */
+}
+
+        button:hover {
+            background-color: #FFFFFF;
+        }
+
+
+        /* Content container */
+
+
+        /* Heading styles */
+        h2, h3 {
+            text-align: left;
+            margin-bottom: 1rem;
+        font-family: 'Poetsen One', cursive;
+          
+        }
+
+        h2 {
+          font-family: 'Poetsen One', cursive;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        /* Rules list styles */
+        ol {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        li {
+            font-size: 1rem;
+            
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: left;
+        }
+
+        li i {
+            margin-right: 0.5rem;
+            color: #00000;
+        }
+    </style>
+</head>
+<body>
+    <div class="underwater-scene">
+          <div class="content">
+        <h2>Department of Computer Science and Engineering</h2>
+        <img src="assets/1.png" alt="Event Logo">
+    <div class="rules">
+        
+        <h3>Rules</h3>
+        <ol>
+            <li><i class="fas fa-fish"></i>Rule 1: Participants must register individually before the deadline.</li>
+            <li><i class="fas fa-fish"></i>Rule 1: Participants must register individually before the deadline.</li>
+        </ol>
+    </div>
+        <button>Register</button>
+    </div>
+        <!-- Bubbles are created using only CSS -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+
+</body>
+</html>

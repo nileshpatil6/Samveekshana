@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vijay Prakash Concert Night</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #009AFF, #0BA3D4, #30B0E5, #049BFC);
+      color: black;
+      font-family: 'Poppins', sans-serif;
+      
+    }
+
+    .container {
+      max-width: 800px;
+      
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    h1 {
+      font-family: 'Poetsen One', cursive;
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #000000,#5E381B, #FF0079);
+      
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+
+    .header img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.52);
+      
+    }
+
+    .rules {
+      border-radius: 10px;
+      list-style: none;
+      padding: 10px;
+      border: 2px dashed rgba(255, 0, 127, 1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.52);
+    }
+
+    .rules li {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+.rules li::before {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f3ff';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 1rem;
+      background: linear-gradient(45deg, #000000, #FF00A7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .rules p {
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: 0;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      border-radius: 50%;
+      animation: bubble 7s infinite;
+      opacity: 0;
+    }
+
+    .bubble:nth-child(2) {
+      width: 20px;
+      height: 20px;
+      left: 10%;
+      animation-duration: 5s;
+      animation-delay: 2s;
+    }
+
+    .bubble:nth-child(3) {
+      width: 30px;
+      height: 30px;
+      left: 20%;
+      animation-duration: 6s;
+      animation-delay: 4s;
+    }
+
+    .bubble:nth-child(4) {
+      width: 50px;
+      height: 50px;
+      left: 30%;
+      animation-duration: 7s;
+      animation-delay: 6s;
+    }
+
+    .bubble:nth-child(5) {
+      width: 10px;
+      height: 10px;
+      left: 40%;
+      animation-duration: 8s;
+      animation-delay: 8s;
+    }
+
+    .bubble:nth-child(6) {
+      width: 60px;
+      height: 60px;
+      left: 50%;
+      animation-duration: 9s;
+      animation-delay: 10s;
+    }
+
+    .bubble:nth-child(7) {
+      width: 25px;
+      height: 25px;
+      left: 60%;
+      animation-duration: 10s;
+      animation-delay: 12s;
+    }
+
+    .bubble:nth-child(8) {
+      width: 35px;
+      height: 35px;
+      left: 70%;
+      animation-duration: 11s;
+      animation-delay: 14s;
+    }
+
+    .bubble:nth-child(9) {
+      width: 45px;
+      height: 45px;
+      left: 80%;
+      animation-duration: 12s;
+      animation-delay: 16s;
+    }
+
+    .bubble:nth-child(10) {
+      width: 15px;
+      height: 15px;
+      left: 90%;
+      animation-duration: 13s;
+      animation-delay: 18s;
+    }
+
+    @keyframes bubble {
+      0% {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-240vh);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vijay Prakash Concert Night</h1>
+    <div class="header">
+      <img src="vj.png" alt="Vijay Prakash">
+    </div>
+    <ul class="rules">
+      <li><p>EACH PARTICIPANT MUST PAY A TOTAL REGISTRATION FEE EQUIVALENT TO 250 PER HEAD.</p></li>
+      <li><p>PARTICIPANTS CAN CHOOSE TO REGISTER FOR MULTIPLE EVENTS, WITH THE COMBINED REGISTRATION FEES ADDING UP TO 250.</p></li>
+      <li><p>THE TOTAL REGISTRATION FEE CAN BE SPLIT ACROSS 2-3 EVENTS, AS LONG AS THE SUM EQUALS 250 PER PARTICIPANT.</p></li>
+      <li><p>ONLY THOSE WHO HAVE PAID THE TOTAL REGISTRATION FEE WILL RECEIVE A PASS FOR THE CELEBRITY NIGHT.</p></li>
+      <li><p>REGISTRATION FOR MULTIPLE EVENTS MUST BE COMPLETED WITHIN THE SPECIFIED REGISTRATION PERIOD.</p></li>
+      <li><p>PARTICIPANTS MUST ENSURE THEY HAVE PAID THE FULL COMBINED REGISTRATION FEE TO BE ELIGIBLE FOR THE CELEBRITY NIGHT PASS.</p></li>
+      <li><p>REGISTRATION FOR THE CELEBRITY NIGHT PASS WILL ONLY BE CONFIRMED UPON PAYMENT OF THE COMPLETE REGISTRATION FEE.</p></li>
+      <li><p>PARTICIPANTS ARE REQUIRED TO CARRY THEIR COLLEGE ID CARDS.</p></li>
+    </ul>
+  </div>
+  <footer>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+    <p>&copy; 2024 Samveekshana. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

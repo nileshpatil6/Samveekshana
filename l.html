@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Website</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .parallax {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .parallax img {
+      position: absolute;
+      pointer-events: none;
+      width:100%;
+     height: 90%;
+   background-size: cover;
+    }
+
+    #text {
+      position: absolute;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .content {
+      padding: 50px;
+      background-color: #1A8488;
+    }
+
+    #btn {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Destination</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="parallax">
+    <div id="text">It's time for a new Adventure</div>
+    <img src="bird1.png" id="bird1">
+    <img src="bird2.png" id="bird2">
+    <img src="forest.png" id="forest" width="5%" height="1%">
+    <a href="#" id="btn">Explore</a>
+    <img src="rocks.png" id="rocks">
+    <img src="water.png" id="water">
+  </section>
+
+  <section class="content">
+    <h1>Parallax Scrolling Effects</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero iste laboriosam iusto sapiente voluptatum s, incidunt culpa quae. Necessitatibus vero exercitationem accusantium nemo culpa ipsa tempora quia? Aliquam, nemo doloribus. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id quidem dolore atque maiores laudantium, corporis quam quisquam vero repellat ad nobis asperiores incidunt veritatis neque eus delectus consequuntur quibusdam eaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit cumque molestiae fugit ratione aliquam suscipit, perspiciatis in quod molestias quisquam doloribus at tempore. Minima aperiam molestias in nobis eaque ipsam.</p>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      let value = window.scrollY;
+
+      document.getElementById('text').style.top = value * 1.5 + 'px';
+      document.getElementById('bird1').style.top = value * 0.5 + 'px';
+      document.getElementById('bird1').style.left = value * 2 + 'px';
+      document.getElementById('bird2').style.top = -value * 1.5 + 'px';
+      document.getElementById('bird2').style.left = value + 'px';
+      document.getElementById('btn').style.marginTop = value * 1.5 + 'px';
+      document.getElementById('rocks').style.top = value * 0.22 + 'px';
+      document.getElementById('forest').style.top = value * 0.25 + 'px';
+      document.getElementById('header').style.top = value * 0.5 + 'px';
+    });
+  </script>
+</body>
+</html>

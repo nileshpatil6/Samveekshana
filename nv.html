@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocean Navigation Bar</title>
+  <link rel="stylesheet" href="sts.css">
+  
+  <style>
+    
+
+
+    
+    
+    .nav-scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      scrollbar-width: none;
+    }
+    
+    .nav-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-menu li {
+      margin-right: 20px;
+    }
+    
+    .nav-menu li:last-child {
+      margin-right: 0;
+    }
+    
+    .nav-menu li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .nav-menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .nav-controls button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+
+.bottom-nav-container {
+  position: fixed;
+  bottom: 10%; /* Adjust the percentage as needed */
+  left: 5%;
+  
+  width: 80%;
+  background-color: #000000;
+  padding: 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 30px; /* Add border radius for curved edges */
+}
+
+.nav-menu li {
+  position: relative; /* Position indicator relative to list item */
+  left:20%;
+}
+
+
+
+.nav-menu li.active::after {
+  width: 100%; /* Expand indicator to full width when link is active */
+  background-color: red;
+}
+
+  </style>
+</head>
+<body>
+  
+<div class="bottom-nav-container">
+  <nav class="bottom-nav">
+    <div class="nav-scroll-container">
+      <ul class="nav-menu">
+        <li><a href="#">The Gemini era</a></li>
+        <li><a href="#">Gemini 1.5</a></li>
+        <li><a href="#">Gemini 1.0</a></li>
+        <li><a href="#">Safety</a></li>
+        <li><a href="#">Gemini Apps</a></li>
+        <li><a href="#">Build with Gemini</a></li>
+      </ul>
+    </div>
+    
+  </nav>
+</div>
+  
+  <script >
+    const navScrollContainer = document.querySelector('.nav-scroll-container');
+const navPrev = document.querySelector('.nav-prev');
+const navNext = document.querySelector('.nav-next');
+
+let scrollAmount = 0;
+const scrollStep = 200; // Adjust this value to control the scroll distance
+
+navPrev.addEventListener('click', () => {
+  scrollAmount -= scrollStep;
+  navScrollContainer.scrollLeft = scrollAmount;
+});
+
+navNext.addEventListener('click', () => {
+  scrollAmount += scrollStep;
+  navScrollContainer.scrollLeft = scrollAmount;
+});
+    
+    const navMenuItems = document.querySelectorAll('.nav-menu li');
+
+navMenuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // Remove active class from all items
+    navMenuItems.forEach(item => {
+      item.classList.remove('active');
+    });
+    // Add active class to clicked item
+    item.classList.add('active');
+  });
+});
+
+  </script>
+</body>
+</html>

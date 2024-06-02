@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samveekshana 2K24</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+      
+      /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #0077b6;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1000px;
+}
+
+    .Wave {
+      margin-top:100px;
+      width: 1200px;
+      height: 200px;
+      -webkit-animation-name: swell;
+      animation-name: swell;
+      -webkit-animation-duration: 5s;
+      animation-duration: 10s;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+      fill: #4FC3F7;
+       
+    }
+
+.Text {
+  position: absolute;
+  top: 40%;
+  
+  transform: translate(-50%, -50%);
+  font-size: 4.5rem; /* Increase font size for a big heading */
+  font-family: 'Montserrat"', cursive; /* Use a font resembling water */
+  
+  text-align: center; /* Align text at center */
+  color: transparent;
+  -webkit-text-stroke: 1px red;
+  text-stroke: 3px white;
+  z-index: 1;
+  animati#FFFFFFon: float 5s ease-in-out infinite;
+}
+    @-webkit-keyframes swell {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    @keyframes swell {
+      0% {
+        transform: translateX(-50%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+    }
+
+/* Underwater scene */
+.underwater-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Bubble styles */
+.bubble {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: white;
+    border: px solid rgba(255, 255, 255, 0.06);
+    bottom: 0px;
+    opacity: 0.2;
+    animation: bubble 5s ease-in-out infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0%);
+        opacity: 0.06;
+    }
+    100% {
+        transform: translateY(-120vh);
+    }
+}
+
+@keyframes sideWays {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 200px;
+    }
+}
+
+.bubble--1 {
+    left: 10%;
+    animation-delay: 0.5s;
+    animation-duration: 5s;
+    opacity: 0.2;
+}
+
+.bubble--2 {
+    width: 15px;
+    height: 15px;
+    left: 40%;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    opacity: 0.1;
+}
+
+.bubble--3 {
+    width: 10px;
+    height: 10px;
+    left: 30%;
+    animation-delay: 5s;
+    animation-duration: 2s;
+    opacity: 0.3;
+}
+
+.bubble--4 {
+    width: 25px;
+    height: 25px;
+    left: 40%;
+    animation-delay: 8s;
+    animation-duration: 17s;
+    opacity: 0.2;
+}
+
+.bubble--5 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    animation-delay: 10s;
+    animation-duration: 15s;
+    opacity: 0.1;
+}
+
+.bubble--6 {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    animation-delay: 3s;
+    animation-duration: 30s;
+    opacity: 0.4;
+}
+
+.bubble--7 {
+    width: 15px;
+    height: 15px;
+    left: 90%;
+    animation-delay: -7s;
+    animation-duration: 25s;
+    opacity: 0.3;
+}
+
+.bubble--9 {
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    bottom: 30px;
+    animation-delay: -5s;
+    animation-duration: 19s;
+    opacity: 0.2;
+}
+
+.bubble--10 {
+    width: 40px;
+    height: 40px;
+    left: 30%;
+    bottom: 30px;
+    animation-delay: -21s;
+    animation-duration: 16s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    bottom: 30px;
+    animation-delay: -13.75s;
+    animation-duration: 20s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 25px;
+    height: 25px;
+    left: 90%;
+    bottom: 30px;
+    animation-delay: -10.5s;
+    animation-duration: 19s;
+    opacity: 0.3;
+}
+
+/* Increase frequency and speed on scroll */
+.underwater-scene.scrolled .bubble {
+    animation-duration: 10s;
+}
+
+.underwater-scene.scrolled .bubble--1 {
+    animation-duration: 12s;
+}
+
+.underwater-scene.scrolled .bubble--2 {
+    animation-duration: 8s;
+}
+
+.underwater-scene.scrolled .bubble--3 {
+    animation-duration: 15s;
+}
+
+.underwater-scene.scrolled .bubble--4 {
+    animation-duration: 13s;
+}
+
+.underwater-scene.scrolled .bubble--5 {
+    animation-duration: 11s;
+}
+
+.underwater-scene.scrolled .bubble--6 {
+    animation-duration: 20s;
+}
+
+.underwater-scene.scrolled .bubble--7 {
+    animation-duration: 18s;
+}
+
+.underwater-scene.scrolled .bubble--9 {
+    animation-duration: 14s;
+}
+
+.underwater-scene.scrolled .bubble--10 {
+    animation-duration: 12s;
+}
+
+.underwater-scene.scrolled .bubble--11 {
+    animation-duration: 16s;
+}
+
+/* Plant styles */
+.plant {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: sway 3s ease-in-out infinite alternate;
+}
+
+.plant.seaweed {
+    background-image: url('seaweed.png');
+}
+
+.plant.coral {
+    background-image: url('coral.png');
+}
+
+@keyframes sway {
+    0% {
+        transform: translateX(-50%) rotate(10deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(-10deg);
+    }
+}
+
+/* Header styles */
+header {
+    background-color: rgba(0, 119, 182, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.logo img {
+    height: 50px;
+}
+
+
+/* Hero section styles */
+.hero {
+    padding: 6rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta {
+    display: inline-block;
+    background-color: #fff;
+    color: #0077b6;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+/* Events section styles */
+.events {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.events h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-item {
+    max-width: 500px;
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.event-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.event-item:hover::before {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+}
+
+.event-item img {
+    width: 100%;
+    height: auto;
+}
+
+.event-item h3 {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+.event-item p {
+    padding: 0 1rem 1rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: rgba(0, 119, 182, 0.8);
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+.ripple {
+position: absolute;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+background-color: rgba(191, 235, 250, 0.7);
+animation: ripple 1s linear;
+pointer-events: none;
+z-index: 4;
+}
+@keyframes ripple {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+100% {
+transform: scale(5);
+opacity: 0;
+}
+}
+
+.ripple1 {
+position: absolute;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: rgba(255, 255, 255, 1);
+animation: ripple1 1s linear;
+pointer-events: none;
+z-index: 2;
+}
+@keyframes ripple1 {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+100% {
+transform: scale(5);
+opacity: 0;
+}
+}
+      
+      
+    </style>
+</head>
+<body>
+  
+    <div class="underwater-scene">
+      
+        <!-- Bubbles and plants will be added dynamically via JavaScript -->
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Samveekshana 2K24">
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+          
+          
+          
+            <div class="hero-content">
+                <h1>Samveekshana 2K24</h1>
+                <p>Explore the depths of creativity.</p>
+                <a href="#" class="cta">Register Now</a>
+            </div>
+        </section>
+
+        <section class="events">
+            <h2>Events</h2>
+            <div class="event-list">
+                <div class="event-item">
+                    <img src="event-poster-1.jpg" alt="Event Poster 1">
+                    <h3>Event Title 1</h3>
+                    <p>Event description goes here...</p>
+                </div>
+                <div class="event-item">
+                    <img src="event-poster-2.jpg" alt="Event Poster 2">
+                    <h3>Event Title 2</h3>
+                    <p>Event description goes here...</p>
+                </div>
+                                <div class="event-item">
+                                  <img src="event-poster-1.jpg" alt="Event Poster 1">
+                                  <h3>Event Title 1</h3>
+                                  <p>Event description goes here...</p>
+                                </div>
+                                <div class="event-item">
+                                  <img src="event-poster-2.jpg" alt="Event Poster 2">
+                                  <h3>Event Title 2</h3>
+                                  <p>Event description goes here...</p>
+                                </div>
+                <!-- Add more event items as needed -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Samveekshana 2K24. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js">
+      
+
+// Water ripple effect
+
+    </script>
+</body>
+</html>

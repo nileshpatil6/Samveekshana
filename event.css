@@ -1,0 +1,251 @@
+            * {
+            margin: 0;
+            padding: 2px;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Ocean theme gradient background */
+        body {
+            background: linear-gradient(to bottom, #B3E1FF, #74D8F8, #30B0E5, #049BFC);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .underwater-scene {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Enable vertical scrolling for content */
+        }
+
+        /* Other CSS styles remain the same */
+        /* Bubble styles */
+        .bubble {
+            width: 30px;
+            height: 30px;
+            
+            border-radius: 100%;
+            position: absolute;
+            background-color: #FFFFFF00; /* Adjust the opacity to make bubbles visible */
+            border: 2px solid rgba(255, 255, 255, 1);
+            bottom: 0px; /* Adjust this value to position bubbles just above the footer */
+            opacity: 0.9;
+            animation: bubble 8s ease-in-out infinite, sideWays 3s ease-in-out infinite alternate;
+             /* Make bubbles visible by default */
+             display: none;
+        }
+
+        @keyframes bubble {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-400vh); /* Move bubbles off the top of the screen */
+            }
+        }
+
+        @keyframes sideWays {
+            0% {
+                margin-left: 0px;
+            }
+            100% {
+                margin-left: 150px;
+            }
+        }
+
+        /* Generate more bubbles */
+        .bubble:nth-child(2n) {
+            animation-delay: 4.5s;
+        }
+
+        .bubble:nth-child(3n) {
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(4n) {
+            animation-delay: 1.7s;
+        }
+
+        .bubble:nth-child(5n) {
+            animation-delay: 2s;
+        }
+
+        /* Additional bubbles on the right side */
+        .bubble:nth-child(6n) {
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(7n) {
+            right: 30%;
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(8n) {
+            right: 40%;
+            animation-delay: 1.5s;
+        }
+
+        .bubble:nth-child(9n) {
+            right: 50%;
+            animation-delay: 2s;
+        }
+
+        /* Heading styles */
+        h2, h3 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color:#445559;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            position: relative; /* Change position to relative */
+            bottom: 0; /* Set bottom to 0 */
+            left: -90px;
+            width: 0%;
+            /* Example background color */
+            color: #fff; /* Example text color */
+            padding: 0px; /* Adjust padding as needed */
+            text-align: left;
+            margin-top: 10px;
+            
+        }
+        
+        footer img {
+            width: 100%; /* Adjust width as needed */
+            height: 0%; /* Adjust height as needed */
+        }
+        
+        /* Paragraph styles */
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        /* Image styles */
+        img {
+          width: 100%;
+            height: auto;
+            border-radius: 20px;
+            padding:0px;
+            margin-bottom: 2rem;
+            box-shadow: 0 0px 18px rgba(0, 0, 0, 0.9); 
+            
+        }
+
+        /* Button styles */
+        button {
+            background-color: #FFFFFF00;
+            color: #fff;
+            border: 2px dashed #FFFFFF;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            z-index: 999999;
+            margin-top: 2rem;
+             /* This will center the button horizontally */
+             
+        }
+
+        button:hover {
+            background-color: #00D5FF;
+        }
+
+        /* Content container */
+        /* Heading styles */
+        h2, h3 {
+            text-align: left;
+            margin-bottom: 1rem;
+            
+        }
+
+        h2 {
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        /* Rules list styles */
+        ol {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        li {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: left;
+        }
+
+        li i {
+            margin-right: 0.5rem;
+            color: #00000;
+        }
+
+        .rules {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Rule headings styles */
+        .rules h3 {
+            text-align: left;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Rule paragraph styles */
+        .rules p {
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.3;
+            margin-bottom: 0.8rem;
+        }
+        body {
+    max-width: 800px; /* Set max width */
+    margin: 0 auto; /* Center align */
+    padding: 20px; /* Add some padding */
+    font-family: Arial, sans-serif; /* Choose a font */
+    line-height: 1.6; /* Set line height */
+  }
+
+  pre {
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+    word-wrap: break-word; /* Break long words */
+    background-color: black; /* Set background color */
+    padding: 30px; /* Add padding */
+    border: 2px dashed #FFFFFF; /* Add border */
+    border-radius: 20px; /* Add border radius */
+    
+    box-shadow: 0 0px 25px rgba(75, 71, 71, 0.46); /* Add shadow */
+    /* Text color gradient */
+    -webkit-background-clip: text; /* Apply gradient to text */
+    color: transparent; /* Hide original text color */
+  }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocean Navigation Bar</title>
+  <link rel="stylesheet" href="sts.css">
+  
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #FEF1E9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      scrollbar-width: none;
+    }
+    
+    .nav-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-left: 10%;
+    }
+    
+    .nav-menu li {
+      margin-right: 20px;
+      position: relative; /* Position indicator relative to list item */
+    }
+
+    .nav-menu li:last-child {
+      margin-right: 0;
+    }
+    
+    .nav-menu li a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .nav-menu li a:hover {
+      background-color: rgba(230, 9, 9, 1);
+    }
+
+    .nav-menu li::after {
+      content: '';
+      padding: 1px;
+      position: absolute;
+      bottom: -1px; /* Adjust the distance from the bottom */
+      left: 50%; /* Position in the center horizontally */
+      transform: translateX(-50%); /* Center the underline */
+      width: 0; /* Set initial width to 0 */
+      height: 2px; /* Adjust the height of the underline */
+      /* background-color: gray; Adjust the color of the underline */
+      transition: width 0.3s ease; /* Add transition effect for width change */
+    }
+
+    .nav-menu li.active::after {
+      width: calc(100% - 20px); /* Expand the width for the active item */
+      background-color: white; /* Change color for active item */
+    }
+    
+    .bottom-nav-container {
+      position: fixed;
+      bottom: 10%; /* Adjust the percentage as needed */
+      left: 50%;
+      z-index: 1000;
+      transform: translateX(-50%);
+      width: 65%;
+      background-color: #000000;
+      padding: 19px;
+        border-radius: 30px; /* Add border radius for curved edges */
+    }
+  </style>
+</head>
+<body>
+  
+<div class="bottom-nav-container">
+  <nav class="bottom-nav">
+    <div class="nav-scroll-container">
+      <ul class="nav-menu">
+        <li><a href="#">Technical</a></li>
+        <li><a href="#">E-Gaming</a></li>
+        <li><a href="#">Dance/drama </a></li>
+        <li><a href="#">Specials</a></li>
+        <li><a href="#">Non-tech</a></li>
+        <li><a href="#">Finearts</a></li>
+      </ul>
+    </div>
+    
+  </nav>
+</div>
+  
+  <script>
+    const navMenuItems = document.querySelectorAll('.nav-menu li');
+
+    navMenuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active class from all items
+        navMenuItems.forEach(item => {
+          item.classList.remove('active');
+        });
+        // Add active class to clicked item
+        item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+

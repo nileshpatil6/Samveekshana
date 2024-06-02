@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samveekshana 2K24</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap">
+
+    <style>
+      
+      /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+
+
+    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Underwater scene */
+.underwater-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    overflow: hidden;
+}
+
+/* Bubble styles */
+.bubble {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: rgba(143, 216, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 1);
+    bottom: 0px;
+    opacity: 0.9;
+    animation: bubble 3s ease-in-out infinite, sideWays 4s ease-in-out infinite 
+    alternate;
+    z-index: 999;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0%);
+        opacity: 0.06;
+    }
+    100% {
+      
+        transform: translateY(-120vh);
+    }
+}
+
+@keyframes sideWays {
+    0% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 200px;
+    }
+}
+
+.bubble--1 {
+  z-index: 999;
+    left: 10%;
+    animation-delay: 0.5s;
+    animation-duration: 5s;
+    opacity: 0.2;
+}
+
+.bubble--2 {
+    width: 15px;
+    height: 15px;
+    left: 40%;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    opacity: 0.1;
+}
+
+.bubble--3 {
+    width: 10px;
+    height: 10px;
+    left: 30%;
+    animation-delay: 5s;
+    animation-duration: 2s;
+    opacity: 0.3;
+}
+
+.bubble--4 {
+    width: 25px;
+    height: 25px;
+    left: 40%;
+    animation-delay: 8s;
+    animation-duration: 17s;
+    opacity: 0.2;
+}
+
+.bubble--5 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    animation-delay: 10s;
+    animation-duration: 15s;
+    opacity: 0.1;
+}
+
+.bubble--6 {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    animation-delay: 3s;
+    animation-duration: 30s;
+    opacity: 0.4;
+}
+
+.bubble--7 {
+    width: 15px;
+    height: 15px;
+    left: 90%;
+    animation-delay: -7s;
+    animation-duration: 25s;
+    opacity: 0.3;
+}
+
+.bubble--9 {
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    bottom: 30px;
+    animation-delay: -5s;
+    animation-duration: 19s;
+    opacity: 0.2;
+}
+
+.bubble--10 {
+    width: 40px;
+    height: 40px;
+    left: 30%;
+    bottom: 30px;
+    animation-delay: -21s;
+    animation-duration: 16s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 30px;
+    height: 30px;
+    left: 60%;
+    bottom: 30px;
+    animation-delay: -13.75s;
+    animation-duration: 20s;
+    opacity: 0.3;
+}
+
+.bubble--11 {
+    width: 25px;
+    height: 25px;
+    left: 90%;
+    bottom: 30px;
+    animation-delay: -10.5s;
+    animation-duration: 19s;
+    opacity: 0.3;
+}
+
+/* Increase frequency and speed on scroll */
+
+
+/* Plant styles */
+.plant {
+    position: relative;
+    
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    opacity: 0.3;
+    z-index: 1;
+    
+}
+
+.plant.seaweed {
+    background-image: url('p.png');
+}
+
+.plant.coral {
+    background-image: url('p.png');
+}
+
+@keyframes sway {
+    0% {
+        transform: translateX(-50%) rotate(10deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(-10deg);
+    }
+}
+
+/* Header styles */
+header {
+   
+    box-ow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    
+}
+
+
+
+/* Hero section styles */
+.hero {
+    padding: 6rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(171, 14, 14, 0.);
+}
+
+.hero-content h1 {
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cta {
+    display: inline-block;
+    
+  
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #FFCC00;
+    color: #333;
+}
+
+/* Events section styles */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust as needed */
+    grid-gap: 15px; /* Adjust the gap between image boxes */
+    z-index: 99;
+}
+
+.image-box {
+  
+  z-index: 99;
+    overflow: hidden;
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.image-box img {
+ 
+    width: 100%; /* Ensure the image fills its container */
+    
+    height: auto; /* Preserve aspect ratio */
+    display: block; /* Remove any extra space below the image */
+}
+.events h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #333; /* Adjust the color as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer styles */
+footer {
+   
+    text-align: center;
+    padding-top: 5%;
+    position: relative;
+    z-index: 100;
+    background-color: #000033;
+    color: whitesmoke;
+    
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+        .bottom-nav-container {
+            width:60%;
+        }
+}
+
+.ripple {
+position: absolute;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+background-color: rgba(191, 235, 250, 0.7);
+animation: ripple 1s linear;
+pointer-events: none;
+z-index: 4;
+}
+@keyframes ripple {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+100% {
+transform: scale(5);
+opacity: 0;
+}
+}
+
+.ripple1 {
+position: absolute;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: rgba(255, 255, 255, 1);
+animation: ripple1 1s linear;
+pointer-events: none;
+z-index: 2;
+}
+@keyframes ripple1 {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+100% {
+transform: scale(5);
+opacity: 0;
+}
+}
+      
+      
+
+
+
+.spinning-image {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    transform: translateX(-50%);
+    width: 150px; /* Adjust width as needed */
+     /* Adjust height as needed */
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)1s;
+    top:0%;
+    z-index: 100;
+    
+}
+
+
+section {
+  position: relative;
+  width: 100%;
+  height: vh;
+
+}
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(wave4.png);
+  background-size: 800px 100px;
+  animation: animate 4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.25s);
+}
+.wave#wave1 {
+  
+  z-index: 1000;
+  opacity: 1;
+  background-position-x: 400px;
+}
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  background-position-x: 300px;
+}
+.wave#wave3 {
+  z-index: 998;
+  opacity: 0.2;
+  background-position-x: 200px;
+}
+.wave#wave4 {
+  z-index: 997;
+  opacity: 0.7;
+  background-position-x: 100px;
+}
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+.sec {
+  
+  padding: 10px;
+
+    background: linear-gradient(to bottom, 
+        #B7E8FF,
+        #ADD8E6,
+        #87CEEB,
+        #64c4ed,
+        #4194e1,
+        #1E90FF,
+        #0084ff,
+        #0063cd,
+        #00338b,
+        #000080,
+        #000033
+    );
+}
+
+.waves{
+  z-index: 100;
+  
+  
+}
+.sec h2 {
+  font-size: 3em;
+  color: #111;
+}
+.sec p {
+  font-size: 1.2em;
+  color: #111;
+}
+    .parallax {
+      position: relative;
+      width: 100%;
+      height: 40vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      
+    }
+
+    .parallax img {
+      position: absolute;
+      pointer-events: none;
+      width:120%;
+     height: 190%;
+     top:10%;
+   background-size: cover;
+   transition: all cubic-bezier(0.19, 1, 0.22, 1)5s;
+   animation: animate 1s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.5s);
+    }
+
+    #text {
+      position: absolute;
+      color: rgb(10, 10, 10);
+      font-size: 49px;
+      
+      transition: all cubic-bezier(0.19, 1, 0.22, 1)3s;
+      animation: animate 4s ease-in-out infinite;
+      z-index: 10;
+      animation-delay: calc(var(--i) * 0.1s);
+      font-family: 'Poetsen One', cursive;
+    }
+
+    
+
+
+
+    .nav-scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      scrollbar-width: none;
+      
+    }
+    
+    .nav-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-left: 1%;
+    }
+    
+    .nav-menu li {
+      margin-right: 20px;
+      position: relative; /* Position indicator relative to list item */
+padding: 2%;
+    }
+
+    .nav-menu li:last-child {
+      margin-right: 0;
+    }
+    
+    .nav-menu li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      ;
+      transition: background-color 0.3s ease;
+    }
+    
+    .nav-menu li a:hover {
+      
+      border-radius: 50px;
+    }
+
+    .nav-menu li::after {
+      content: '';
+      padding: 1px;
+      position: absolute;
+      bottom: -1px; /* Adjust the distance from the bottom */
+      left: 50%; /* Position in the center horizontally */
+      transform: translateX(-50%); /* Center the underline */
+      width: 0; /* Set initial width to 0 */
+      height: 2px; /* Adjust the height of the underline */
+      /* background-color: gray; Adjust the color of the underline */
+      transition: width 1s ease; /* Add transition effect for width change */
+    }
+
+    .nav-menu li.active::after {
+      width: calc(100% - 20px); /* Expand the width for the active item */
+      background-color: white; /* Change color for active item */
+    }
+    
+    .bottom-nav-container {
+      position: fixed;
+      bottom: 4%; /* Adjust the percentage as needed */
+      left: 50%;
+  z-index: 101;
+  
+transform: translateX(-50%);
+      width: 70%;
+      background-color: #000000;
+      
+      padding: 5px;
+        border-radius: 60px; /* Add border radius for curved edges */
+        display: none;
+        border: 1.4px solid #FFFFFF;
+    }
+/*text*/
+
+ .banner{
+transform: translateX(23%);
+        position: absolute;
+
+        width:84%; 
+        top:10px;
+        height: 10vh;
+        overflow: hidden;
+        display:grid;
+        
+  justify-content: center;
+  align-items: center;
+  
+  overflow: hidden;
+  z-index: -1;
+  
+      }
+
+     .banner video {
+            position: absolute;
+            top: 0;
+            left: 2%;
+            width: 96.5%;
+            height: 93%;
+            object-fit: cover;
+            border-radius: 10px;
+            z-index: -1;
+  }
+
+   .banner h1{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    font-weight: 300;
+    font-size: 10.1vw;
+    z-index: -1;
+    text-align: center;
+    mix-blend-mode: screen;
+    background-color: #fff;
+    font-family: 'Poetsen One', cursive;
+   }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <nav>
+          
+            <div class="logo">
+                <img src="logo.png" alt="Samveekshana 2K24">
+            </div>
+
+        </nav>
+        
+    </header>
+
+
+    <div class="bottom-nav-container">
+      
+  <nav class="bottom-nav">
+    <p style="color: white; font-size: 1px; margin-left: 50%; margin-top: 12%;  position: absolute;">scroll</p>
+    <div class="nav-scroll-container">
+      <ul class="nav-menu">
+        <li><a href="#tech">Technical</a></li>
+        <li><a href="#eg">E-Gaming</a></li>
+        <li><a href="#dd">Dance/drama </a></li>
+        <li><a href="#sp">Specials</a></li>
+        <li><a href="#nt">Non-tech</a></li>
+        <li><a href="#fn">Finearts</a></li>
+      </ul>
+    </div>
+    
+  </nav>
+</div>
+                                                                <img src="ou.gif" alt="Spinning Image" class="spinning-image">                         
+
+    <main>
+      
+      
+        <section class="hero">
+          
+
+              
+              
+          
+            <div class="hero-content">
+  <section class="parallax">
+    
+
+    <img src="bird1.png" id="bird1">
+    <img src="bird2.png" id="bird2">
+    <div class="underwater-scene">
+        <!-- Bubbles and plants will be added dynamically via JavaScript -->
+        
+    </div>
+   
+
+
+  
+
+                <h1></h1>
+                                  <div class="banner" id="text">
+                                    <video src="sky.mp4" type="video/mp4" autoplay muted loop></video>
+                                    <h1>SAMVEEKSHANA</h1>
+                                  </div>
+                <p style="color: #333;">Explore the depths of creativity
+                
+                
+                .</p>
+
+            </div>
+
+        </section>
+        </section>
+
+
+            <section class="waves">
+
+              <div class="wave" id="wave1" style="--i: 1;"></div>
+              <div class="wave" id="wave2" style="--i: 2;"></div>
+              <div class="wave" id="wave3" style="--i: 3;"></div>
+              <div class="wave" id="wave4" style="--i: 4;"></div>
+            </section>
+            <div class="sec">
+        
+<section class="events">
+  <span class="event" style="
+        display: block;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+    Events
+  </span>
+
+  <!-- Technical Events -->
+  <h2 style="color: #333;" id="tech">Technical</h2>
+<div class="image-grid">
+    <div class="image-box">
+      <a href="WaveHack.html">
+        <img src="assets/1.png" alt="Technical Event 1">
+      </a>
+    </div>
+
+    <div class="image-box">
+      <a href="NumericalPuzzle.html">
+        <img src="assets/2.png" alt="Technical Event 2">
+      </a>
+    </div>
+          
+    <div class="image-box">
+      <a href="ClashOfCad.html">
+        <img src="assets/3.png" alt="Technical Event 3">
+      </a>
+    </div>
+
+    <div class="image-box">
+      <a href="modelMarvel.html">
+        <img src="assets/4.png" alt="Technical Event 4">
+      </a>
+    </div>
+
+    <div class="image-box">
+      <a href="TechnicalQuiz.html">
+        <img src="assets/5.png" alt="Technical Event 5">
+      </a>
+    </div>
+
+    <div class="image-box">
+      <a href="CodeVenture.html">
+        <img src="assets/6.png" alt="Technical Event 6">
+      </a>
+    </div>
+
+    <div class="image-box">
+      <a href="Aquatic Insights.html"> 
+        <img src="assets/28.png" alt="Technical Event 7">
+      </a>
+    </div>
+
+    <div class="image-box">
+      <a href="Paper Presentation.html">
+        <img src="assets/29.png" alt="Technical Event 8">
+      </a>
+    </div>
+</div>
+  <!-- Non-tech Events -->
+<!-- Non-technical Events -->
+<h2 style="color: #666;" id="nt">Non-technical</h2>
+<div class="image-grid">
+  <div class="image-box">
+    <a href="BigBoss.html">
+      <img src="assets/7.png" alt="Non-tech Event 1">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="GyaanGaliGulchand.html">
+      <img src="assets/8.png" alt="Non-tech Event 2">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="JanapadaSangam.html">
+      <img src="assets/9.png" alt="Non-tech Event 3">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="CPATKM.html"> 
+      <img src="assets/10.png" alt="Non-tech Event 4">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="CarromFighters.html">
+      <img src="assets/11.png" alt="Non-tech Event 5">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="SwatchataHiSeva.html">
+      <img src="assets/12.png" alt="Non-tech Event 6">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="BattleOfMinds.html">
+      <img src="assets/13.png" alt="Non-tech Event 7">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="PantryProwess.html">
+      <img src="assets/14.png" alt="Non-tech Event 8">
+    </a>
+  </div>
+</div>
+
+<!-- E-Gaming Events -->
+<h2 style="color: #999;" id="eg">E-Gaming</h2>
+<div class="image-grid">
+  <div class="image-box">
+    <a href="VALORANT.html">
+      <img src="assets/15.png" alt="E-Gaming Event 1">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="COD.html">
+      <img src="assets/16.png" alt="E-Gaming Event 2">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="BGMI-CIVIL.html">
+      <img src="assets/17.png" alt="E-Gaming Event 3">
+    </a>
+  </div>
+    <div class="image-box">
+    <a href="BGMI-BSH.html">
+      <img src="assets/30.png" alt="E-Gaming Event 3">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="PES.html">
+      <img src="assets/18.png" alt="E-Gaming Event 4">
+    </a>
+  </div>
+</div>
+
+<!-- Finearts Events -->
+<h2 style="color: #BBB;" id="fn">Finearts</h2>
+<div class="image-grid">
+  <div class="image-box">
+    <a href="MandalaArt.html">
+      <img src="assets/19.png" alt="Finearts Event 1">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="TechRangoli.html">
+      <img src="assets/20.png" alt="Finearts Event 2">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="ArtAlchemy.html">
+      <img src="assets/21.png" alt="Finearts Event 3">
+    </a>
+  </div>
+</div>
+
+<!-- Dance/Drama Events -->
+<h2 style="color: #DDD;" id="dd">Dance/Drama</h2>
+<div class="image-grid">
+  <div class="image-box">
+    <a href="RhythmUnited.html">
+      <img src="assets/22.png" alt="Dance/Drama Event 1">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="OMYM.html">
+      <img src="assets/23.png" alt="Dance/Drama Event 2">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="SkitSpectra.html">
+      <img src="assets/24.png" alt="Dance/Drama Event 3">
+    </a>
+  </div>
+</div>
+
+<!-- Specials Events -->
+<h2 style="color: #EEE;" id="sp">Specials</h2>
+<div class="image-grid" id="test">
+  <div class="image-box">
+    <a href="StrangelyFamiliar.html">
+      <img src="assets/25.png" alt="Specials Event 1">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="TreasureHunt.html">
+      <img src="assets/26.png" alt="Specials Event 2">
+    </a>
+  </div>
+  <div class="image-box">
+    <a href="SGBITKaHunar.html">
+      <img src="assets/27.png" alt="Specials Event 3">
+    </a>
+  </div>
+</div>
+</section>
+            </div>
+
+
+            
+    </main>
+  
+    <footer>
+    
+        <p>&copy; 2024 Samveekshana 2K24. All rights reserved.</p>
+                                <img src="ZZ.png" width="100%" height="150%" style="margin-top:0%;">
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script >
+      
+
+window.addEventListener('load', () => {
+    const underwaterScene = document.querySelector('.underwater-scene');
+
+    for (let i = 0; i < 60; i++) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        bubble.style.left = `${Math.random() * 50}vw`;
+        bubble.style.top = `${Math.random() * 500}vh`;
+        bubble.style.animationDelay = `${Math.random() * 5}s`;
+        bubble.style.transform = `translateZ(${Math.random() * 1000 - 500}px) scale(${Math.random() * 0.5 + 0.5})`;
+        underwaterScene.appendChild(bubble);
+    }
+
+    for (let i = 0; i < 4; i++) {
+        const plant = document.createElement('div');
+        plant.classList.add('plant');
+        plant.style. left = `${Math.random() * 1}vw`;
+       plant.style.top = `${Math.random() * 100}vw`;
+        plant.classList.add(Math.random() > 8? 'seaweed' : 'coral');
+        underwaterScene.appendChild(plant);
+    }
+});
+
+// Water ripple effect
+document.addEventListener('click', (e) => {
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${e.pageX - 25}px`; // Use e.pageX
+        ripple.style.top = `${e.pageY - 25}px`; // Use e.pageY
+        document.body.appendChild(ripple);
+      
+        setTimeout(() => {
+          ripple.remove();
+        }, 1000);
+      });
+      
+      document.addEventListener('mouseover', (e) => {
+        const ripple1 = document.createElement('div');
+        ripple1.classList.add('ripple1');
+        ripple1.style.left = `${e.pageX - 15}px`; // Use e.pageX
+        ripple1.style.top = `${e.pageY - 15}px`; // Use e.pageY
+        document.body.appendChild(ripple1);
+      
+        setTimeout(() => {
+          ripple1.remove();
+        }, 1000);
+      });
+      
+      document.addEventListener('touchstart', (e) => {
+        const ripple = document.createElement('div');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${e.touches[0].pageX - 25}px`; // Use e.touches[0].pageX
+        ripple.style.top = `${e.touches[0].pageY - 25}px`; // Use e.touches[0].pageY
+        document.body.appendChild(ripple);
+      
+        setTimeout(() => {
+          ripple.remove();
+        }, 500);
+      });
+      
+      document.addEventListener('touchstart', (e) => {
+        const ripple1 = document.createElement('div');
+        ripple1.classList.add('ripple1');
+        ripple1.style.left = `${e.touches[0].pageX - 15}px`; // Use e.touches[0].pageX
+        ripple1.style.top = `${e.touches[0].pageY - 15}px`; // Use e.touches[0].pageY
+        document.body.appendChild(ripple1);
+      
+        setTimeout(() => {
+          ripple1.remove();
+        }, 100);
+      });
+      
+      let wave1 = document.getElementById("wave1");
+      let wave2 = document.getElementById("wave2");
+      let wave3 = document.getElementById("wave3");
+      let wave4 = document.getElementById("wave4");
+
+      window.addEventListener("scroll", function() {
+        let value = window.scrollY;
+
+        wave1.style.backgroundPositionX = 400 + value * 4 + "px";
+        wave2.style.backgroundPositionX = 300 + value * -4 + "px";
+        wave3.style.backgroundPositionX = 200 + value * 2 + "px";
+        wave4.style.backgroundPositionX = 100 + value * -2 + "px";
+      });
+     window.addEventListener('scroll', function() {
+       let value = window.scrollY;
+     
+       document.getElementById('text').style.top = value * 1.5 + 'px';
+       document.getElementById('bird1').style.top = value * 0.5 + 'px';
+       document.getElementById('bird1').style.left = value * 2 + 'px';
+       document.getElementById('bird2').style.top = -value * 1.5 + 'px';
+       document.getElementById('bird2').style.left = value + 'px';
+       
+     });
+let rotationFlag = false;
+
+window.addEventListener('scroll', function() {
+  var image = document.querySelector('.spinning-image');
+  var scrollPosition = window.scrollY;
+
+  // Adjust the speed of rotation based on the scroll position
+  var rotation = 'rotate(' + (scrollPosition / 80) + 'deg)';
+  image.style.transform = 'translateX(10%) ' + rotation;
+
+  // Determine the behavior based on the scroll position
+  if (scrollPosition >= 2000 && scrollPosition < 4000) {
+    // Move to the right smoothly
+    image.style.transition = 'left 0.5s ease-in-out';
+    image.style.left = 'calc(100% - 200px)';
+  } else if (scrollPosition >= 4000 && scrollPosition < 6000) {
+    // Move to a random position smoothly after a pause
+    if (!rotationFlag) {
+      setTimeout(() => {
+        var randomLeft = Math.random() * (window.innerWidth - 200) + 'px';
+        var randomTop = Math.random() * (window.innerHeight - 200) + 'px';
+        image.style.transition = 'left 0.5s ease-in-out, top 0.5s ease-in-out';
+        image.style.left = randomLeft;
+        image.style.top = randomTop;
+        rotationFlag = true;
+      }, 1000); // Adjust the pause duration as needed (in milliseconds)
+    }
+  } else if (scrollPosition >= 6000 && scrollPosition < 8000) {
+    // Rotate 360 degrees smoothly
+    image.style.transition = 'transform 0.5s ease-in-out';
+    image.style.transform = 'translateX(10%) rotate(360deg)';
+  } else if (scrollPosition >= 8000 && scrollPosition < 10000) {
+    // Move to the left smoothly
+    image.style.transition = 'left 0.5s ease-in-out';
+    image.style.left = '0';
+    rotationFlag = false; // Reset rotation flag
+  }
+
+  // Determine the behavior based on each 200-pixel scroll lap
+  var lap = Math.floor(scrollPosition / 200) % 10; // Adjust 10 to the number of laps
+  switch (lap) {
+    case 0:
+      // Move left
+      image.style.transition = 'left 0.5s ease-in-out';
+      image.style.left = '0';
+      break;
+    case 1:
+      // Move to center or any other behavior
+      // Adjust as needed for each lap
+      image.style.transition = 'left 0.5s ease-in-out';
+      image.style.left = 'calc(50% - 100px)';
+      break;
+      // Add cases for each lap as needed
+    default:
+      break;
+  }
+});
+const navMenuItems = document.querySelectorAll('.nav-menu li');
+
+    navMenuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active class from all items
+        navMenuItems.forEach(item => {
+          item.classList.remove('active');
+        });
+        // Add active class to clicked item
+        item.classList.add('active');
+      });
+    });
+    // Function to check if an element is in the viewport
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Function to toggle visibility of the bottom nav bar
+    function toggleBottomNavBar() {
+        var bottomNavBar = document.querySelector('.bottom-nav-container');
+        var visibleElement = document.querySelector('.event');
+
+        if (isElementInViewport(visibleElement)) {
+            bottomNavBar.style.display = 'none';
+        } else {
+            bottomNavBar.style.display = 'block';
+        }
+    }
+
+    // Event listener for scrolling
+    window.addEventListener('scroll', function() {
+        toggleBottomNavBar();
+    });
+
+    // Initial check on page load
+    toggleBottomNavBar();
+window.addEventListener('scroll', function() {
+            const headings = document.querySelectorAll('.section h2');
+            const navLinks = document.querySelectorAll('.nav-menu li a');
+
+            headings.forEach((heading, index) => {
+                const top = heading.offsetTop;
+                const id = heading.getAttribute('id');
+                if (window.pageYOffset >= top) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    document.querySelector(`.nav-menu li a[href="#fn"]`).classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
