@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Restaurant Voice Chat Bot</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FFFFFF;
+            perspective: 1000px;
+        }
+
+        .container {
+
+            flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 52px 16px;
+  overflow-y: auto;
+  max-height: 650px;
+  perspective: 1000px;
+        }
+
+        button {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #ff6347;
+        }
+
+        #chatBody {
+margin-top: 20px;
+            border: 1px solid #FFFFFF;
+            padding: 15px;
+            height: 550px;
+            overflow-y: auto;
+            border-radius: 10px;
+            background: #FFFFFF;
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.29);
+            
+            position: relative;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+        .user-message {
+            align-self: flex-end;
+    background: #2193b0; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border-radius: 20px;
+    max-width: 80%;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    animation: pop 0.3s ease-in-out;
+        }
+
+        .bot-message {
+align-self: flex-start;
+  background: #fc4a1a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: black;
+  border-radius: 20px;
+  max-width: 90%;
+  padding: 12px 16px;
+  margin-bottom: 10px; /* Updated margin-bottom */
+  animation: pop 0.3s ease-in-out;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 17px;
+        }
+
+        .typing-indicator {
+            display: relative;
+            align-items: center;
+            justify-content: end ;
+            height: 50px;
+            bottom:1px;
+        }
+
+        .typing-indicator div {
+            width: 10px;
+            height: 10px;
+            background-color: #ff7f50;
+            border-radius: 50%;
+            margin: 0 3px;
+            bottom:0px;
+            animation: typing 1s infinite;
+        }
+
+        .typing-indicator div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator div:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .wave-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        .wave {
+            width: 5px;
+            height: 25px;
+            background-color: #ff7f50;
+            margin: 0 3px;
+            animation: wave 1.2s infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: -1.1s;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: -1s;
+        }
+
+        .wave:nth-child(4) {
+            animation-delay: -0.9s;
+        }
+
+        .wave:nth-child(5) {
+            animation-delay: -0.8s;
+        }
+
+        .wave:nth-child(6) {
+            animation-delay: -0.7s;
+        }
+
+        .wave:nth-child(7) {
+            animation-delay: -0.6s;
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: scaleY(1);
+            }
+            50% {
+                transform: scaleY(2);
+            }
+        }
+
+        #inputBar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #textInput {
+            width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        #sendButton {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button id="startSpeechRecognition">Start Speech Recognition</button>
+        <div id="chatBody">
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="wave-container" id="waveContainer" style="display: none;">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        </div>
+        <div id="inputBar">
+            <input type="text" id="textInput" placeholder="Type your message here...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const chatBody = document.getElementById('chatBody');
+const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
+const sendButton = document.getElementById('sendButton');
+const textInput = document.getElementById('textInput');
+const typingIndicator = document.getElementById('typingIndicator');
+const waveContainer = document.getElementById('waveContainer');
+let recognition;
+let isListening = false;
+let finalTranscript = '';
+let audioContext;
+let audioSource;
+let audioBuffer;
+let secondAudioBuffer;
+let thirdAudioBuffer;
+const conversationHistory = [];
+
+async function startSpeechRecognition() {
+    if (audioSource) {
+        audioSource.stop();
+    }
+
+    isListening = true;
+    recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        finalTranscript = transcript;
+        console.log('Final transcript:', finalTranscript);
+    };
+
+    recognition.onend = () => {
+        isListening = false;
+        if (finalTranscript.trim() !== '') {
+            addUserMessage(finalTranscript.trim());
+            processBotResponse(finalTranscript.trim());
+            finalTranscript = '';
+        }
+    };
+
+    recognition.start();
+}
+
+function addUserMessage(message) {
+    conversationHistory.push({ role: 'user', content: message });
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', 'user-message');
+    messageElement.textContent = message;
+    chatBody.appendChild(messageElement);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addBotMessage({ name, price, img }) {
+    conversationHistory.push({ role: 'assistant', content: name });
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', 'bot-message');
+    
+    const content = `
+        <strong>${name}</strong><br>
+        <img src="${img}" alt="${name}" style="max-width: 100px; display: block; margin: 10px auto;"><br>
+        Price: ${price}
+    `;
+    messageElement.innerHTML = content;
+    chatBody.appendChild(messageElement);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    speakBotResponse(name);
+}
+
+function addPlainBotMessage(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', 'bot-message');
+    messageElement.textContent = message;
+    chatBody.appendChild(messageElement);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    speakBotResponse(message);
+}
+
+async function processBotResponse(message) {
+    try {
+        typingIndicator.style.display = 'flex';
+        const response = await axios.post(
+            'https://api.groq.com/openai/v1/chat/completions',
+            {
+                messages: conversationHistory,
+                model: 'llama3-70b-8192'
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer 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`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+        typingIndicator.style.display = 'none';
+        const botMessage = response.data.choices[0]?.message?.content || 'Error: No response from the bot';
+
+        let jsonResponse;
+        try {
+            jsonResponse = JSON.parse(botMessage);
+        } catch (e) {
+            jsonResponse = null;
+        }
+
+        if (jsonResponse && jsonResponse.dish) {
+            addBotMessage(jsonResponse.dish);
+            speakBotResponse("Here is the information about " + jsonResponse.dish.name);
+        } else {
+            addPlainBotMessage(botMessage);
+        }
+    } catch (error) {
+        console.error('Error calling Groq API', error);
+        addPlainBotMessage('Sorry, something went wrong.');
+    }
+}
+
+function speakBotResponse(message) {
+    if (audioSource) {
+        audioSource.stop();
+    }
+    audioBuffer = null;
+    secondAudioBuffer = null;
+    thirdAudioBuffer = null;
+
+    const url = "https://api.deepgram.com/v1/speak?model=aura-arcas-en";
+    const apiKey = "b8b1401237d2eb28d132caf61ef487cd52e0eb78";
+    const headers = {
+        Authorization: `Token ${apiKey}`,
+        "Content-Type": "application/json"
+    };
+
+    const words = message.split(' ');
+    const initialChunk = words.slice(0, 10).join(' ');
+    const secondChunk = words.slice(10, 160).join(' ');
+    const thirdChunk = words.slice(160).join(' ');
+
+    const initialBody = JSON.stringify({ text: initialChunk });
+    const secondBody = JSON.stringify({ text: secondChunk });
+    const thirdBody = JSON.stringify({ text: thirdChunk });
+
+    const initialOptions = {
+        method: "POST",
+        headers: headers,
+        body: initialBody
+    };
+
+    const secondOptions = {
+        method: "POST",
+        headers: headers,
+        body: secondBody
+    };
+
+    const thirdOptions = {
+        method: "POST",
+        headers: headers,
+        body: thirdBody
+    };
+
+    fetch(url, initialOptions)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to make request: " + response.statusText);
+            }
+            return response.arrayBuffer();
+        })
+        .then(buffer => {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            return audioContext.decodeAudioData(buffer);
+        })
+        .then(decodedBuffer => {
+            audioBuffer = decodedBuffer;
+            playAudioBuffer(audioBuffer, 1);
+
+            // Pre-fetch and decode the second chunk
+            return fetch(url, secondOptions);
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to make request: " + response.statusText);
+            }
+            return response.arrayBuffer();
+        })
+        .then(buffer => {
+            return audioContext.decodeAudioData(buffer);
+        })
+        .then(decodedBuffer => {
+            secondAudioBuffer = decodedBuffer;
+
+            // Pre-fetch and decode the third chunk if it exists
+            if (thirdChunk) {
+                return fetch(url, thirdOptions);
+            }
+        })
+        .then(response => {
+            if (response) {
+                if (!response.ok) {
+                    throw new Error("Failed to make request: " + response.statusText);
+                }
+                return response.arrayBuffer();
+            }
+        })
+        .then(buffer => {
+            if (buffer) {
+                return audioContext.decodeAudioData(buffer);
+            }
+        })
+        .then(decodedBuffer => {
+            if (decodedBuffer) {
+                thirdAudioBuffer = decodedBuffer;
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
+
+function playAudioBuffer(buffer, chunkNumber) {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    audioSource = audioContext.createBufferSource();
+    audioSource.buffer = buffer;
+    audioSource.connect(audioContext.destination);
+    waveContainer.style.display = 'flex';
+
+    audioSource.onended = () => {
+        waveContainer.style.display = 'none';
+        if (chunkNumber === 1 && secondAudioBuffer) {
+            playAudioBuffer(secondAudioBuffer, 2);
+        } else if (chunkNumber === 2 && thirdAudioBuffer) {
+            playAudioBuffer(thirdAudioBuffer, 3);
+        } else {
+            startSpeechRecognition(); // Automatically start speech recognition after audio playback ends
+        }
+    };
+
+    audioSource.start();
+}
+
+function sendMessage() {
+    const message = textInput.value.trim();
+    if (message) {
+        addUserMessage(message);
+        processBotResponse(message);
+        textInput.value = '';
+    }
+}
+
+startSpeechRecognitionButton.addEventListener('click', startSpeechRecognition);
+sendButton.addEventListener('click', sendMessage);
+textInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        sendMessage();
+    }
+});
+
+// Ensure that speech recognition stops if the user navigates away from the page
+window.addEventListener('beforeunload', () => {
+    if (recognition && isListening) {
+        recognition.stop();
+    }
+});
+
+// Initialize conversation history with a welcome message
+addPlainBotMessage("Welcome! How can I assist you today?");
+    </script>
+</body>
+</html>
